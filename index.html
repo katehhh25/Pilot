@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALTs Law — Pilot Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #2B2B2B;
+    --green: #1FC93A;
+    --mint: #D4F5DB;
+    --body: #595959;
+    --muted: #8A8A8A;
+    --rule: #E0E0E0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    color: var(--body);
+    background: #F4F4F2;
+    line-height: 1.5;
+    font-size: 14.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 32px 16px; }
+
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; }
+    @page { size: A4; margin: 12mm; }
+    .section, .banner { page-break-inside: avoid; }
+    a[href]:after { content: ""; }
+  }
+
+  /* ============ TITLE BLOCK ============ */
+  .title-block {
+    padding: 54px 60px 32px 60px;
+    background: white;
+    position: relative;
+  }
+
+  .title-block .wordmark {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    color: var(--charcoal);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  .title-block .subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: #6E6E6E;
+    line-height: 1.35;
+    max-width: 620px;
+  }
+
+  .barcode { display: block; margin-top: 28px; }
+
+  /* ============ BANNER ============ */
+  .banner {
+    background: var(--charcoal);
+    color: white;
+    padding: 16px 60px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 62px;
+  }
+
+  .banner .icon {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner .dots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 280px;
+    pointer-events: none;
+  }
+
+  /* ============ SECTION ============ */
+  .section {
+    padding: 26px 60px 34px 60px;
+  }
+
+  .section p { margin-bottom: 14px; }
+  .section p:last-child { margin-bottom: 0; }
+
+  /* ============ MINT PANEL ============ */
+  .panel {
+    background: var(--mint);
+    border-left: 3px solid var(--green);
+    padding: 22px 26px;
+    margin-top: 6px;
+  }
+  .panel p { margin-bottom: 12px; }
+  .panel p:last-child { margin-bottom: 0; }
+
+  /* ============ WHAT-WE-DO LIST ============ */
+  .lead-line {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .what-list {
+    list-style: none;
+    background: var(--mint);
+    border-left: 3px solid var(--green);
+    padding: 8px 26px;
+  }
+
+  .what-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(31, 201, 58, 0.22);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .what-list li:last-child { border-bottom: none; }
+
+  .tagline {
+    font-style: italic;
+    color: #6E6E6E;
+    margin-top: 18px;
+    font-size: 14.5px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ============ KEYWORD ============ */
+  .kw {
+    color: var(--green);
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.005em;
+  }
+
+  /* ============ TEAM ============ */
+  .team-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--charcoal);
+    font-size: 17px;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    padding: 18px 60px 30px 60px;
+    border-top: 2px solid var(--green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    background: white;
+    gap: 24px;
+  }
+
+  .footer .left {
+    font-weight: 600;
+    color: var(--charcoal);
+    font-size: 12.5px;
+  }
+  .footer .marker {
+    text-align: right;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+
+  .cal-link {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    font-size: 13px;
+  }
+  .cal-link:hover { text-decoration: underline; }
+
+  .after-pilot {
+    color: var(--charcoal);
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ TITLE ============ -->
+  <div class="title-block">
+    <div class="wordmark">ALTs Law</div>
+    <div class="subtitle">Senior legal judgment, productised for life sciences and healthcare.</div>
+
+    <svg class="barcode" width="320" height="28" viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"   y="6"  width="2" height="22" fill="#1FC93A"/>
+      <rect x="5"   y="0"  width="2" height="28" fill="#1FC93A"/>
+      <rect x="10"  y="10" width="2" height="18" fill="#1FC93A"/>
+      <rect x="15"  y="4"  width="2" height="24" fill="#1FC93A"/>
+      <rect x="20"  y="12" width="2" height="16" fill="#1FC93A"/>
+      <rect x="25"  y="2"  width="2" height="26" fill="#1FC93A"/>
+      <rect x="30"  y="8"  width="2" height="20" fill="#1FC93A"/>
+      <rect x="35"  y="14" width="2" height="14" fill="#1FC93A"/>
+      <rect x="40"  y="6"  width="2" height="22" fill="#1FC93A"/>
+      <rect x="45"  y="0"  width="2" height="28" fill="#1FC93A"/>
+      <rect x="50"  y="10" width="2" height="18" fill="#1FC93A"/>
+      <rect x="55"  y="4"  width="2" height="24" fill="#1FC93A"/>
+      <rect x="60"  y="16" width="2" height="12" fill="#1FC93A"/>
+      <rect x="65"  y="8"  width="2" height="20" fill="#1FC93A"/>
+      <rect x="70"  y="12" width="2" height="16" fill="#1FC93A"/>
+      <rect x="75"  y="2"  width="2" height="26" fill="#1FC93A"/>
+      <rect x="80"  y="6"  width="2" height="22" fill="#1FC93A"/>
+      <rect x="85"  y="14" width="2" height="14" fill="#1FC93A"/>
+      <rect x="90"  y="10" width="2" height="18" fill="#1FC93A"/>
+      <rect x="95"  y="0"  width="2" height="28" fill="#1FC93A"/>
+      <rect x="100" y="8"  width="2" height="20" fill="#1FC93A"/>
+      <rect x="105" y="16" width="2" height="12" fill="#1FC93A"/>
+      <rect x="110" y="4"  width="2" height="24" fill="#1FC93A"/>
+      <rect x="115" y="12" width="2" height="16" fill="#1FC93A"/>
+      <rect x="120" y="6"  width="2" height="22" fill="#1FC93A"/>
+      <rect x="125" y="2"  width="2" height="26" fill="#1FC93A"/>
+      <rect x="130" y="14" width="2" height="14" fill="#1FC93A"/>
+      <rect x="135" y="8"  width="2" height="20" fill="#1FC93A"/>
+      <rect x="140" y="10" width="2" height="18" fill="#1FC93A"/>
+      <rect x="145" y="4"  width="2" height="24" fill="#1FC93A"/>
+      <rect x="150" y="16" width="2" height="12" fill="#1FC93A"/>
+      <rect x="155" y="6"  width="2" height="22" fill="#1FC93A"/>
+      <rect x="160" y="2"  width="2" height="26" fill="#1FC93A"/>
+      <rect x="165" y="10" width="2" height="18" fill="#1FC93A"/>
+      <rect x="170" y="14" width="2" height="14" fill="#1FC93A"/>
+    </svg>
+  </div>
+
+  <!-- ============ ABOUT US ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="3.5"/>
+      <circle cx="22" cy="12" r="3"/>
+      <path d="M4 24 C4 19 7 17 11 17 C15 17 18 19 18 24"/>
+      <path d="M17 22 C17 19 19 17 22 17 C25 17 28 19 28 24"/>
+    </svg>
+    <span class="label">About us</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="278" cy="3"  r="2.2" fill="#1FC93A"/>
+      <circle cx="270" cy="8"  r="1.8" fill="#1FC93A"/>
+      <circle cx="264" cy="2"  r="1.2" fill="#1FC93A"/>
+      <circle cx="258" cy="6"  r="2.5" fill="#1FC93A"/>
+      <circle cx="262" cy="14" r="1.4" fill="#1FC93A"/>
+      <circle cx="252" cy="10" r="1.8" fill="#1FC93A"/>
+      <circle cx="246" cy="4"  r="2.0" fill="#1FC93A"/>
+      <circle cx="240" cy="16" r="1.3" fill="#1FC93A"/>
+      <circle cx="233" cy="7"  r="2.2" fill="#1FC93A"/>
+      <circle cx="236" cy="22" r="1.6" fill="#1FC93A"/>
+      <circle cx="226" cy="12" r="1.9" fill="#1FC93A"/>
+      <circle cx="218" cy="3"  r="1.4" fill="#1FC93A"/>
+      <circle cx="213" cy="18" r="2.1" fill="#1FC93A"/>
+      <circle cx="208" cy="9"  r="1.5" fill="#1FC93A"/>
+      <circle cx="203" cy="25" r="1.2" fill="#1FC93A"/>
+      <circle cx="196" cy="14" r="1.8" fill="#1FC93A"/>
+      <circle cx="188" cy="6"  r="1.3" fill="#1FC93A"/>
+      <circle cx="183" cy="22" r="1.6" fill="#1FC93A"/>
+      <circle cx="178" cy="11" r="1.1" fill="#1FC93A"/>
+      <circle cx="170" cy="28" r="1.4" fill="#1FC93A"/>
+      <circle cx="166" cy="17" r="1.2" fill="#1FC93A"/>
+      <circle cx="158" cy="8"  r="1.5" fill="#1FC93A"/>
+      <circle cx="153" cy="24" r="1.0" fill="#1FC93A"/>
+      <circle cx="146" cy="14" r="1.3" fill="#1FC93A"/>
+      <circle cx="138" cy="22" r="0.9" fill="#1FC93A"/>
+      <circle cx="133" cy="10" r="1.1" fill="#1FC93A"/>
+      <circle cx="126" cy="30" r="1.0" fill="#1FC93A"/>
+      <circle cx="118" cy="18" r="0.8" fill="#1FC93A"/>
+      <circle cx="113" cy="6"  r="1.2" fill="#1FC93A"/>
+      <circle cx="106" cy="26" r="0.9" fill="#1FC93A"/>
+      <circle cx="98"  cy="14" r="0.8" fill="#1FC93A"/>
+      <circle cx="93"  cy="32" r="1.0" fill="#1FC93A"/>
+      <circle cx="86"  cy="20" r="0.8" fill="#1FC93A"/>
+      <circle cx="80"  cy="8"  r="0.9" fill="#1FC93A"/>
+      <circle cx="73"  cy="28" r="0.8" fill="#1FC93A"/>
+      <circle cx="66"  cy="16" r="0.7" fill="#1FC93A"/>
+      <circle cx="60"  cy="35" r="0.9" fill="#1FC93A"/>
+      <circle cx="53"  cy="22" r="0.6" fill="#1FC93A"/>
+      <circle cx="46"  cy="10" r="0.7" fill="#1FC93A"/>
+      <circle cx="40"  cy="30" r="0.5" fill="#1FC93A"/>
+      <circle cx="274" cy="18" r="0.8" fill="#1FC93A"/>
+      <circle cx="280" cy="28" r="1.1" fill="#1FC93A"/>
+      <circle cx="268" cy="30" r="1.3" fill="#1FC93A"/>
+      <circle cx="255" cy="24" r="0.9" fill="#1FC93A"/>
+      <circle cx="246" cy="32" r="1.2" fill="#1FC93A"/>
+      <circle cx="223" cy="35" r="0.8" fill="#1FC93A"/>
+      <circle cx="240" cy="40" r="1.0" fill="#1FC93A"/>
+      <circle cx="263" cy="42" r="1.2" fill="#1FC93A"/>
+      <circle cx="256" cy="50" r="0.9" fill="#1FC93A"/>
+      <circle cx="276" cy="36" r="1.5" fill="#1FC93A"/>
+      <circle cx="228" cy="48" r="0.7" fill="#1FC93A"/>
+      <circle cx="213" cy="42" r="0.8" fill="#1FC93A"/>
+      <circle cx="203" cy="53" r="1.0" fill="#1FC93A"/>
+      <circle cx="193" cy="35" r="0.6" fill="#1FC93A"/>
+      <circle cx="183" cy="52" r="0.9" fill="#1FC93A"/>
+      <circle cx="173" cy="44" r="0.7" fill="#1FC93A"/>
+      <circle cx="158" cy="48" r="0.6" fill="#1FC93A"/>
+      <circle cx="143" cy="50" r="0.8" fill="#1FC93A"/>
+      <circle cx="128" cy="45" r="0.7" fill="#1FC93A"/>
+      <circle cx="116" cy="50" r="0.6" fill="#1FC93A"/>
+      <circle cx="103" cy="42" r="0.5" fill="#1FC93A"/>
+      <circle cx="88"  cy="48" r="0.6" fill="#1FC93A"/>
+      <circle cx="70"  cy="45" r="0.5" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <p>We're building a specialist legal and regulatory firm for <span class="kw">life sciences and healthcare</span>, the companies at the frontier of regulated complexity, and the investors backing them.</p>
+    <p>Our investor practice operates through <span class="kw">ALTs Club</span>, serving a select number of UHNWI and large Single-Family Offices with <span class="kw">~85BN AUM</span> combined. From <span class="kw">Q3 2026</span>, we're extending direct services to growth-stage life sciences and healthcare companies, delivering the regulatory and compliance work that typically goes to external counsel, at hourly rates that punish anything iterative.</p>
+    <p>Where others automate the routine, <span class="kw">we encode the judgment</span>. Our AI agents reason like senior GCs with <span class="kw">30 to 50 years</span> of life sciences and healthcare experience at organisations like <span class="kw">J&amp;J, GSK, LabCorp, and SEKISUI Diagnostics</span>, built with them, not from their documents.</p>
+  </div>
+
+  <!-- ============ WHY NOW ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="16" r="12"/>
+      <path d="M16 9 L16 16 L22 19"/>
+    </svg>
+    <span class="label">Why now</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="278" cy="5"  r="2.0" fill="#1FC93A"/>
+      <circle cx="271" cy="11" r="1.6" fill="#1FC93A"/>
+      <circle cx="264" cy="3"  r="1.2" fill="#1FC93A"/>
+      <circle cx="258" cy="9"  r="2.2" fill="#1FC93A"/>
+      <circle cx="250" cy="14" r="1.4" fill="#1FC93A"/>
+      <circle cx="245" cy="5"  r="1.8" fill="#1FC93A"/>
+      <circle cx="238" cy="12" r="1.3" fill="#1FC93A"/>
+      <circle cx="230" cy="6"  r="2.1" fill="#1FC93A"/>
+      <circle cx="224" cy="18" r="1.5" fill="#1FC93A"/>
+      <circle cx="216" cy="10" r="1.8" fill="#1FC93A"/>
+      <circle cx="209" cy="22" r="1.2" fill="#1FC93A"/>
+      <circle cx="202" cy="13" r="1.4" fill="#1FC93A"/>
+      <circle cx="195" cy="6"  r="1.6" fill="#1FC93A"/>
+      <circle cx="188" cy="24" r="1.3" fill="#1FC93A"/>
+      <circle cx="180" cy="15" r="1.1" fill="#1FC93A"/>
+      <circle cx="172" cy="28" r="1.5" fill="#1FC93A"/>
+      <circle cx="165" cy="18" r="1.2" fill="#1FC93A"/>
+      <circle cx="158" cy="8"  r="1.3" fill="#1FC93A"/>
+      <circle cx="150" cy="26" r="1.0" fill="#1FC93A"/>
+      <circle cx="142" cy="14" r="1.1" fill="#1FC93A"/>
+      <circle cx="135" cy="32" r="0.9" fill="#1FC93A"/>
+      <circle cx="128" cy="20" r="1.0" fill="#1FC93A"/>
+      <circle cx="120" cy="10" r="0.8" fill="#1FC93A"/>
+      <circle cx="112" cy="28" r="0.9" fill="#1FC93A"/>
+      <circle cx="105" cy="16" r="0.7" fill="#1FC93A"/>
+      <circle cx="95"  cy="34" r="0.8" fill="#1FC93A"/>
+      <circle cx="88"  cy="22" r="0.6" fill="#1FC93A"/>
+      <circle cx="78"  cy="12" r="0.7" fill="#1FC93A"/>
+      <circle cx="70"  cy="30" r="0.6" fill="#1FC93A"/>
+      <circle cx="62"  cy="18" r="0.5" fill="#1FC93A"/>
+      <circle cx="274" cy="22" r="1.1" fill="#1FC93A"/>
+      <circle cx="262" cy="28" r="1.0" fill="#1FC93A"/>
+      <circle cx="248" cy="35" r="1.2" fill="#1FC93A"/>
+      <circle cx="235" cy="42" r="0.9" fill="#1FC93A"/>
+      <circle cx="220" cy="38" r="1.0" fill="#1FC93A"/>
+      <circle cx="206" cy="45" r="0.8" fill="#1FC93A"/>
+      <circle cx="190" cy="48" r="0.9" fill="#1FC93A"/>
+      <circle cx="175" cy="44" r="0.7" fill="#1FC93A"/>
+      <circle cx="158" cy="50" r="0.8" fill="#1FC93A"/>
+      <circle cx="142" cy="46" r="0.6" fill="#1FC93A"/>
+      <circle cx="125" cy="52" r="0.7" fill="#1FC93A"/>
+      <circle cx="108" cy="48" r="0.5" fill="#1FC93A"/>
+      <circle cx="90"  cy="50" r="0.6" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <p>Cross-jurisdictional complexity is growing. Data rules, promotional claims, and licensing frameworks are moving at different speeds in different markets. External counsel gives you a black-and-white memo. Then what?</p>
+    <p>The gap between legal advice and what's implementable in your business is where <span class="kw">exposure sits</span>. You need something <span class="kw">strategic</span>, not a 20-page memo that sits on a shelf.</p>
+  </div>
+
+  <!-- ============ WHAT WE DO DIFFERENTLY ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 4 L27 16 L16 28 L5 16 Z"/>
+      <path d="M11 16 L16 11 L21 16 L16 21 Z"/>
+    </svg>
+    <span class="label">What we do differently</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="276" cy="4"  r="2.3" fill="#1FC93A"/>
+      <circle cx="268" cy="10" r="1.7" fill="#1FC93A"/>
+      <circle cx="260" cy="3"  r="1.3" fill="#1FC93A"/>
+      <circle cx="253" cy="8"  r="2.0" fill="#1FC93A"/>
+      <circle cx="246" cy="14" r="1.5" fill="#1FC93A"/>
+      <circle cx="238" cy="6"  r="1.9" fill="#1FC93A"/>
+      <circle cx="230" cy="12" r="1.3" fill="#1FC93A"/>
+      <circle cx="222" cy="18" r="1.8" fill="#1FC93A"/>
+      <circle cx="214" cy="8"  r="1.4" fill="#1FC93A"/>
+      <circle cx="206" cy="24" r="1.6" fill="#1FC93A"/>
+      <circle cx="198" cy="14" r="1.2" fill="#1FC93A"/>
+      <circle cx="190" cy="4"  r="1.5" fill="#1FC93A"/>
+      <circle cx="182" cy="20" r="1.3" fill="#1FC93A"/>
+      <circle cx="174" cy="10" r="1.1" fill="#1FC93A"/>
+      <circle cx="166" cy="28" r="1.4" fill="#1FC93A"/>
+      <circle cx="158" cy="16" r="1.0" fill="#1FC93A"/>
+      <circle cx="150" cy="6"  r="1.2" fill="#1FC93A"/>
+      <circle cx="142" cy="24" r="0.9" fill="#1FC93A"/>
+      <circle cx="134" cy="12" r="1.0" fill="#1FC93A"/>
+      <circle cx="126" cy="30" r="0.8" fill="#1FC93A"/>
+      <circle cx="118" cy="18" r="0.9" fill="#1FC93A"/>
+      <circle cx="110" cy="8"  r="0.7" fill="#1FC93A"/>
+      <circle cx="102" cy="26" r="0.8" fill="#1FC93A"/>
+      <circle cx="94"  cy="14" r="0.6" fill="#1FC93A"/>
+      <circle cx="86"  cy="32" r="0.7" fill="#1FC93A"/>
+      <circle cx="78"  cy="20" r="0.6" fill="#1FC93A"/>
+      <circle cx="70"  cy="10" r="0.5" fill="#1FC93A"/>
+      <circle cx="272" cy="20" r="1.0" fill="#1FC93A"/>
+      <circle cx="264" cy="28" r="1.2" fill="#1FC93A"/>
+      <circle cx="256" cy="22" r="0.8" fill="#1FC93A"/>
+      <circle cx="242" cy="32" r="1.1" fill="#1FC93A"/>
+      <circle cx="228" cy="38" r="1.0" fill="#1FC93A"/>
+      <circle cx="212" cy="42" r="0.8" fill="#1FC93A"/>
+      <circle cx="195" cy="45" r="0.9" fill="#1FC93A"/>
+      <circle cx="178" cy="40" r="0.7" fill="#1FC93A"/>
+      <circle cx="162" cy="48" r="0.8" fill="#1FC93A"/>
+      <circle cx="145" cy="44" r="0.6" fill="#1FC93A"/>
+      <circle cx="128" cy="50" r="0.7" fill="#1FC93A"/>
+      <circle cx="112" cy="46" r="0.5" fill="#1FC93A"/>
+      <circle cx="95"  cy="52" r="0.6" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <div class="lead-line">One-stop, fixed-cost legal service that closes the gap between advice and action.</div>
+    <ul class="what-list">
+      <li><span class="kw">Strategy.</span> The right answer for your business, not just the safe answer.</li>
+      <li><span class="kw">The law.</span> What the rules actually say, across your jurisdictions.</li>
+      <li><span class="kw">The memo.</span> A defensible written record when you need one.</li>
+      <li><span class="kw">Translation.</span> What the rules mean operationally for your company.</li>
+      <li><span class="kw">Remediation.</span> What to do, step by step, with tech support to monitor going forward.</li>
+    </ul>
+    <div class="tagline">No hourly meter. No gap between advice and action. No 20-page memo with no next step.</div>
+  </div>
+
+  <!-- ============ IDEAL PILOT ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="16" cy="16" r="7.5"/>
+      <circle cx="16" cy="16" r="2.5" fill="#1FC93A" stroke="none"/>
+    </svg>
+    <span class="label">Ideal pilot</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="278" cy="6"  r="2.1" fill="#1FC93A"/>
+      <circle cx="270" cy="12" r="1.5" fill="#1FC93A"/>
+      <circle cx="262" cy="4"  r="1.3" fill="#1FC93A"/>
+      <circle cx="254" cy="10" r="1.9" fill="#1FC93A"/>
+      <circle cx="246" cy="16" r="1.4" fill="#1FC93A"/>
+      <circle cx="238" cy="6"  r="1.7" fill="#1FC93A"/>
+      <circle cx="230" cy="14" r="1.2" fill="#1FC93A"/>
+      <circle cx="222" cy="22" r="1.8" fill="#1FC93A"/>
+      <circle cx="214" cy="10" r="1.5" fill="#1FC93A"/>
+      <circle cx="206" cy="18" r="1.3" fill="#1FC93A"/>
+      <circle cx="198" cy="6"  r="1.1" fill="#1FC93A"/>
+      <circle cx="190" cy="26" r="1.5" fill="#1FC93A"/>
+      <circle cx="182" cy="14" r="1.0" fill="#1FC93A"/>
+      <circle cx="174" cy="22" r="1.2" fill="#1FC93A"/>
+      <circle cx="166" cy="10" r="0.9" fill="#1FC93A"/>
+      <circle cx="158" cy="28" r="1.3" fill="#1FC93A"/>
+      <circle cx="150" cy="16" r="1.0" fill="#1FC93A"/>
+      <circle cx="142" cy="6"  r="1.1" fill="#1FC93A"/>
+      <circle cx="134" cy="24" r="0.8" fill="#1FC93A"/>
+      <circle cx="126" cy="12" r="0.9" fill="#1FC93A"/>
+      <circle cx="118" cy="30" r="0.7" fill="#1FC93A"/>
+      <circle cx="110" cy="18" r="0.8" fill="#1FC93A"/>
+      <circle cx="102" cy="8"  r="0.6" fill="#1FC93A"/>
+      <circle cx="94"  cy="26" r="0.7" fill="#1FC93A"/>
+      <circle cx="86"  cy="14" r="0.5" fill="#1FC93A"/>
+      <circle cx="78"  cy="32" r="0.6" fill="#1FC93A"/>
+      <circle cx="268" cy="22" r="1.0" fill="#1FC93A"/>
+      <circle cx="256" cy="28" r="1.1" fill="#1FC93A"/>
+      <circle cx="242" cy="34" r="0.9" fill="#1FC93A"/>
+      <circle cx="228" cy="40" r="1.0" fill="#1FC93A"/>
+      <circle cx="212" cy="44" r="0.8" fill="#1FC93A"/>
+      <circle cx="195" cy="40" r="0.7" fill="#1FC93A"/>
+      <circle cx="178" cy="48" r="0.9" fill="#1FC93A"/>
+      <circle cx="162" cy="42" r="0.6" fill="#1FC93A"/>
+      <circle cx="145" cy="50" r="0.7" fill="#1FC93A"/>
+      <circle cx="128" cy="46" r="0.5" fill="#1FC93A"/>
+      <circle cx="110" cy="52" r="0.6" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <div class="panel">
+      <p>A life sciences or healthcare company operating across multiple jurisdictions, with an active regulatory workload and a GC (or operational equivalent) open to rethinking the model.</p>
+      <p>We're running a <span class="kw">free pilot programme</span> and looking for <span class="kw">1 to 2 more</span> growth-stage partners with distinct data needs and recurring cross-border regulatory, compliance, or licensing work.</p>
+    </div>
+  </div>
+
+  <!-- ============ CURRENTLY ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="20" r="5.5"/>
+      <circle cx="23" cy="20" r="5.5"/>
+      <path d="M9 14.5 L11 8 L21 8 L23 14.5"/>
+      <path d="M14.5 20 L17.5 20"/>
+    </svg>
+    <span class="label">Currently</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="278" cy="4"  r="2.2" fill="#1FC93A"/>
+      <circle cx="270" cy="10" r="1.7" fill="#1FC93A"/>
+      <circle cx="262" cy="2"  r="1.4" fill="#1FC93A"/>
+      <circle cx="255" cy="8"  r="2.0" fill="#1FC93A"/>
+      <circle cx="248" cy="14" r="1.5" fill="#1FC93A"/>
+      <circle cx="240" cy="6"  r="1.8" fill="#1FC93A"/>
+      <circle cx="232" cy="12" r="1.3" fill="#1FC93A"/>
+      <circle cx="224" cy="18" r="1.7" fill="#1FC93A"/>
+      <circle cx="216" cy="8"  r="1.4" fill="#1FC93A"/>
+      <circle cx="208" cy="22" r="1.6" fill="#1FC93A"/>
+      <circle cx="200" cy="14" r="1.2" fill="#1FC93A"/>
+      <circle cx="192" cy="6"  r="1.4" fill="#1FC93A"/>
+      <circle cx="184" cy="24" r="1.3" fill="#1FC93A"/>
+      <circle cx="176" cy="12" r="1.1" fill="#1FC93A"/>
+      <circle cx="168" cy="28" r="1.5" fill="#1FC93A"/>
+      <circle cx="160" cy="16" r="1.0" fill="#1FC93A"/>
+      <circle cx="152" cy="6"  r="1.2" fill="#1FC93A"/>
+      <circle cx="144" cy="24" r="0.9" fill="#1FC93A"/>
+      <circle cx="136" cy="14" r="1.0" fill="#1FC93A"/>
+      <circle cx="128" cy="30" r="0.8" fill="#1FC93A"/>
+      <circle cx="120" cy="18" r="0.9" fill="#1FC93A"/>
+      <circle cx="112" cy="8"  r="0.7" fill="#1FC93A"/>
+      <circle cx="104" cy="26" r="0.8" fill="#1FC93A"/>
+      <circle cx="96"  cy="14" r="0.6" fill="#1FC93A"/>
+      <circle cx="88"  cy="32" r="0.7" fill="#1FC93A"/>
+      <circle cx="80"  cy="20" r="0.6" fill="#1FC93A"/>
+      <circle cx="70"  cy="12" r="0.5" fill="#1FC93A"/>
+      <circle cx="274" cy="22" r="0.9" fill="#1FC93A"/>
+      <circle cx="260" cy="28" r="1.2" fill="#1FC93A"/>
+      <circle cx="244" cy="34" r="1.0" fill="#1FC93A"/>
+      <circle cx="228" cy="40" r="0.8" fill="#1FC93A"/>
+      <circle cx="212" cy="44" r="0.9" fill="#1FC93A"/>
+      <circle cx="196" cy="40" r="0.7" fill="#1FC93A"/>
+      <circle cx="180" cy="48" r="0.8" fill="#1FC93A"/>
+      <circle cx="164" cy="44" r="0.6" fill="#1FC93A"/>
+      <circle cx="148" cy="50" r="0.7" fill="#1FC93A"/>
+      <circle cx="132" cy="46" r="0.5" fill="#1FC93A"/>
+      <circle cx="115" cy="52" r="0.6" fill="#1FC93A"/>
+      <circle cx="98"  cy="48" r="0.5" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <p>Developing a <span class="kw">cross-jurisdictional data compliance solution</span>, three rules (retention, breach notification, cross-border transfer) designed to scale across <span class="kw">20+ jurisdictions</span>, in partnership with international and boutique mid-market pharma and healthcare companies.</p>
+    <p>Also in development: <span class="kw">cross-jurisdictional marketing claims review</span>, traffic-light risk assessment for FDA/FTC-regulated promotional materials, encoded from <span class="kw">50 years</span> of diagnostics promotional review experience.</p>
+    <p class="after-pilot">Pilots typically convert to ongoing engagement across <span class="kw">three layers</span>: self-serve AI tool, tailored advice from a senior lawyer, and managed compliance infrastructure, scaled to your needs. Pricing quoted based on scope. The pilot itself is <span class="kw">free</span>.</p>
+  </div>
+
+  <!-- ============ TEAM LEADER ============ -->
+  <div class="banner">
+    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1FC93A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="11" r="5"/>
+      <path d="M6 26 C6 19 10 17 16 17 C22 17 26 19 26 26"/>
+    </svg>
+    <span class="label">Team leader</span>
+    <svg class="dots" viewBox="0 0 280 60" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="276" cy="4"  r="2.2" fill="#1FC93A"/>
+      <circle cx="268" cy="10" r="1.6" fill="#1FC93A"/>
+      <circle cx="260" cy="3"  r="1.3" fill="#1FC93A"/>
+      <circle cx="252" cy="8"  r="1.9" fill="#1FC93A"/>
+      <circle cx="244" cy="14" r="1.5" fill="#1FC93A"/>
+      <circle cx="236" cy="6"  r="1.8" fill="#1FC93A"/>
+      <circle cx="228" cy="12" r="1.2" fill="#1FC93A"/>
+      <circle cx="220" cy="18" r="1.7" fill="#1FC93A"/>
+      <circle cx="212" cy="8"  r="1.4" fill="#1FC93A"/>
+      <circle cx="204" cy="24" r="1.6" fill="#1FC93A"/>
+      <circle cx="196" cy="14" r="1.2" fill="#1FC93A"/>
+      <circle cx="188" cy="4"  r="1.5" fill="#1FC93A"/>
+      <circle cx="180" cy="20" r="1.3" fill="#1FC93A"/>
+      <circle cx="172" cy="10" r="1.0" fill="#1FC93A"/>
+      <circle cx="164" cy="26" r="1.3" fill="#1FC93A"/>
+      <circle cx="156" cy="16" r="1.0" fill="#1FC93A"/>
+      <circle cx="148" cy="6"  r="1.1" fill="#1FC93A"/>
+      <circle cx="140" cy="22" r="0.8" fill="#1FC93A"/>
+      <circle cx="132" cy="12" r="1.0" fill="#1FC93A"/>
+      <circle cx="124" cy="28" r="0.8" fill="#1FC93A"/>
+      <circle cx="116" cy="18" r="0.7" fill="#1FC93A"/>
+      <circle cx="108" cy="8"  r="0.8" fill="#1FC93A"/>
+      <circle cx="100" cy="26" r="0.6" fill="#1FC93A"/>
+      <circle cx="92"  cy="14" r="0.7" fill="#1FC93A"/>
+      <circle cx="84"  cy="32" r="0.6" fill="#1FC93A"/>
+      <circle cx="272" cy="20" r="1.0" fill="#1FC93A"/>
+      <circle cx="258" cy="28" r="1.1" fill="#1FC93A"/>
+      <circle cx="242" cy="34" r="0.9" fill="#1FC93A"/>
+      <circle cx="226" cy="40" r="1.0" fill="#1FC93A"/>
+      <circle cx="210" cy="44" r="0.8" fill="#1FC93A"/>
+      <circle cx="194" cy="40" r="0.7" fill="#1FC93A"/>
+      <circle cx="178" cy="48" r="0.8" fill="#1FC93A"/>
+      <circle cx="160" cy="44" r="0.6" fill="#1FC93A"/>
+      <circle cx="144" cy="50" r="0.7" fill="#1FC93A"/>
+      <circle cx="128" cy="46" r="0.5" fill="#1FC93A"/>
+      <circle cx="110" cy="52" r="0.6" fill="#1FC93A"/>
+    </svg>
+  </div>
+  <div class="section">
+    <p><span class="team-name">Kate Chan</span>, Founder &amp; CEO. Tri-qualified (England &amp; Wales, New York, Hong Kong). Oxford Law. Previous experience at Davis Polk, Shearman &amp; Sterling, and Pillsbury across frontier tech, life sciences, and health care sectors.</p>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <div class="left">kate@alts.law</div>
+    <div><a class="cal-link" href="https://calendar.app.google/gHT1BnvnUkxe8dPR7">15-Minute Strategic Briefing &rarr;</a></div>
+    <div class="marker">April 2026 · v1 · Confidential</div>
+  </div>
+
+</div>
+</body>
+</html>
